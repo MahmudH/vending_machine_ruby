@@ -10,10 +10,24 @@ describe VendingMachine do
     end
   end
 
-  context '#add_change' do
+  context '#top_up' do
     it 'increase amount of change in the machine' do
-      vending_machine.add_change(30)
-      expect(vending_machine.change).to eq 50
+      vending_machine.top_up(30)
+      expect(vending_machine.total).to eq 50
+    end
+  end
+
+  context '#choose_item' do
+    it 'give change after successful purchase' do
+      allow(order).to receive(:purchase).and_return({coke: [2, 1]})
+      vending_machine.choose_item(:coke, 3)
+      expect(vending_machine.change).to eq 1
+    end
+
+    it 'change total' do
+      allow(order).to receive(:purchase).and_return({coke: [2, 1]})
+      vending_machine.choose_item(:coke, 3)
+      expect(vending_machine.total).to eq 22
     end
   end
 

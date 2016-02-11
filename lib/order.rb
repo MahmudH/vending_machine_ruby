@@ -5,6 +5,7 @@ class Order
   attr_reader :products
 
   def initialize(product= Product.new)
+    @product = product
     @products = product.items
   end
 
