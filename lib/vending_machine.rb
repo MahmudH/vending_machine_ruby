@@ -31,12 +31,10 @@ class VendingMachine
     @coins.each do |key, value|
       if @change == key
         (@coins[key] = @coins[key] - 1) if @coins[key] >= 1
-        puts "Your change #{@change} has been given"
         break
       else
         if (@change - key) > 0
           (@coins[key] = @coins[key] - 1) if @coins[key] >= 1
-          new_change = @change - key
         end
       end
     end

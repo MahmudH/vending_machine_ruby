@@ -14,7 +14,6 @@ class Order
     raise 'Not enough money, please try again' unless money >= @products[item_name][0]
     # @change = money - @products[item_name][0]
     @products[item_name][1] -= 1
-    "Thank you for buying a #{item_name}, enjoy!"
   end
 
 end
