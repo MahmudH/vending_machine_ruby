@@ -3,7 +3,7 @@ class Product
 
   def initialize
     # @products = Hash.new
-    @items = {coke: [2, 5], fanta: [0.8, 3], latte: [3.8, 6]}
+    @items = {coke: [200, 5], fanta: [100, 3], latte: [50, 6]}
 
   end
 
