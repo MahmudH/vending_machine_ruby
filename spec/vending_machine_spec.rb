@@ -17,13 +17,30 @@ describe VendingMachine do
     end
   end
 
-  context '#remove' do
-    it "remove 8 £1's" do
-      vending_machine.top_up(100, 10)
-      vending_machine.remove(100, 8)
-      expect(vending_machine.coins[100]).to eq 2
+  # context '#remove' do
+  #   it "remove 8 £1's" do
+  #     vending_machine.top_up(100, 10)
+  #     vending_machine.remove(100, 8)
+  #     expect(vending_machine.coins[100]).to eq 2
+  #   end
+  # end
+
+  context '#add_product' do
+    it "adds a new product" do
+      vending_machine.add_product(:snickers, 100, 4)
+      expect(vending_machine.products).to have_key :snickers
     end
   end
+
+  context '#choose_item' do
+    it "gives the right change" do
+      
+      vending_machine.add_product(:snickers, 100, 4)
+      expect(vending_machine.products).to have_key :snickers
+    end
+  end
+
+
 
   # context '#choose_item' do
   #   it 'give change after successful purchase' do

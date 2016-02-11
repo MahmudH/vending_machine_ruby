@@ -7,31 +7,37 @@ class VendingMachine
   def initialize(order = Order.new)
     @order = order
     @products = @order.products
-    # @total = total_money
     @coins = { 200 => 0, 100 => 0, 50 => 0, 20 => 0,
                10 => 0, 5 => 0, 2 => 0, 1 => 0 }
+  end
+
+  def add_product(name, price, qty)
+    details = []
+    details.push price, qty
+    @products[name] = details
   end
 
   def top_up(coin, amount)
     @coins[coin] = @coins[coin] + amount
   end
 
-  # def remove(coin, amount)
-  #   (@coins[coin] = @coins[coin] - amount) if @coins[coin] >= amount
-  # end
-
-  def machine_sum
+  def total_sum
     coins.inject(0) { |result, (key, value)| result += (key * value) }
   end
 
   def choose_item(item_name, money)
     @order.purchase(item_name, money)
-    # @total += money
     @change = money - @products[item_name][0]
-    # @total -= @change
     @coins.each do |key, value|
       if @change == key
         (@coins[key] = @coins[key] - 1) if @coins[key] >= 1
+        puts "Your change #{@change} has been given"
+        break
+      else
+        if (@change - key) > 0
+          (@coins[key] = @coins[key] - 1) if @coins[key] >= 1
+          new_change = @change - key
+        end
       end
     end
   end
