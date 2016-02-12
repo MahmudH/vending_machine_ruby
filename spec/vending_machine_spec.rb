@@ -34,9 +34,15 @@ describe VendingMachine do
       expect(vending_machine.coins[10]).to eq 2
     end
     it "gives the right change" do
-      allow(order).to receive(:purchase).and_return(vending_machine.products)
+      allow(order).to receive(:purchase).and_return(vending_machine.products[:coke][1] = 1)
       vending_machine.choose_item(:coke, 260)
-      expect(vending_machine.products[:coke]).to eq 1
+      expect(vending_machine.products[:coke][1]).to eq 1
+    end
+    it "changes total sum in the machine" do
+      vending_machine.top_up(10, 6)
+      allow(order).to receive(:purchase).and_return(vending_machine.products[:coke][1] = 1)
+      vending_machine.choose_item(:coke, 260)
+      expect(vending_machine.total_sum).to eq 50
     end
   end
 
