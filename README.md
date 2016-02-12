@@ -80,4 +80,4 @@ You can top up with 2 arguments. Coin and quantity of that coin. This increases 
 
  This app is built with Ruby and RSPec using TDD.
 
- #### Thank you for viewing.
+ ### Thank you for viewing.
