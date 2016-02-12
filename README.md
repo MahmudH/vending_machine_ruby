@@ -78,6 +78,6 @@ You can top up with 2 arguments. Coin and quantity of that coin. This increases 
  => {:coke=>[200, 5], :fanta=>[100, 2], :latte=>[50, 6], :snickers=>[200, 4]}
  ```
 
- This app is built with Ruby and RSPec using TDD.
+This app is built with Ruby and RSPec using TDD.
 
- ### Thank you for viewing.
+### Thank you for viewing.
