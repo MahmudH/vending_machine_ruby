@@ -58,21 +58,23 @@ You can top up with 2 arguments. Coin and quantity of that coin. This increases 
  => 4
 2.2.1 :008 > vendingmachine.total_sum
  => 640
+ 2.2.1 :009 > vendingmachine.coins
+ => {200=>0, 100=>4, 50=>4, 20=>0, 10=>4, 5=>0, 2=>0, 1=>0}
  ```
 
- You can choose an item to buy from the vending machine but giving 2 arguments. The product name and the amount you are putting into the vending machine to purchase the item.
+ You can choose an item to buy from the vending machine by giving 2 arguments. The product name and the amount you are putting into the vending machine to purchase the item.
 
  ```
- 2.2.1 :009 > vendingmachine.choose_item(:fanta, 160)
+ 2.2.1 :010 > vendingmachine.choose_item(:fanta, 160)
  => {200=>0, 100=>4, 50=>3, 20=>0, 10=>3, 5=>0, 2=>0, 1=>0}
-2.2.1 :010 > vendingmachine.total_sum
+2.2.1 :011 > vendingmachine.total_sum
  => 580
  ```
 
- Purchasing an item decreases the coin hash, which gave back 50p and 10p to the user.The quantity of the product also decreases. Fanta went from 3 to 2. 
+ Purchasing an item decreases the coin hash, which gave back 50p and 10p to the user.The quantity of the product also decreases. Fanta went from 3 to 2.
 
  ```
- 2.2.1 :011 > vendingmachine.products
+ 2.2.1 :012 > vendingmachine.products
  => {:coke=>[200, 5], :fanta=>[100, 2], :latte=>[50, 6], :snickers=>[200, 4]}
  ```
 
